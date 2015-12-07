@@ -1,0 +1,1 @@
+var tODOer = angular.module('TODOer', ['ngResource']);

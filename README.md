@@ -2,6 +2,10 @@
 
 ### Work in progress... 
 
+I had a few attempts to TDD this challenge which all failed, partly due to my unfamiliarity with Angular and partly due to my unfamiliarity with Angular/JavaScript testing tools. When I have time I plan to undertake the Codeschool Angular tutorial and then give this another go. If TDD is still proving difficult I may build the TODO app before the tests. Whilst this isn't ideal, it is sometimes a useful approach when working with new technologies.
+
+
+
 
 # Todo Challenge
 

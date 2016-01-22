@@ -1,0 +1,3 @@
+doStuff.controller('doStuffController', [function() {
+
+}]);

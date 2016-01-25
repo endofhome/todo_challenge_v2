@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='doStuff'>
- <head>
+<head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <title>Do Stuff</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="do_stuff/css/style.css"
+  <link rel="stylesheet" href="do_stuff/css/style.css">
 </head>
 <body ng-controller="doStuffController as doStuffCtrl">
-<h1>Do Stuff</h1>
+<h1 id="main_heading" class="col-xs-12">Do Stuff</h1>
 
-<section id="new_task">
-  <p>New TODO:</p>
+<section id="new_task" class="col-xs-12">
+  New TODO:<br />
   <input></input>
   <button type="button" class="btn btn-default">New Task</button>
 </section>
 
-<section id="task_list">
-  <p>TODO Items:</p>
-  <label><input type="checkbox" value="">Build ToDo app</label><button type="button" class="btn btn-default">x</button><br>
-  <label><input type="checkbox" value="">Hang out washing</label><button type="button" class="btn btn-default">x</button><br>
-  <label><input type="checkbox" value="">more stuff...</label><button type="button" class="btn btn-default">x</button><br>
+<section id="task_list" class="col-xs-12">
+  TODO Items:<br />
+  <label id="list_item" class="checkbox-inline"><input type="checkbox" value=""><strong>Build ToDo app</strong></label><button type="button" class="btn btn-default">x</button><br />
+  <label id="list_item" class="checkbox-inline"><input type="checkbox" value=""><strong>Hang out washing</strong></label><button type="button" class="btn btn-default">x</button><br />
+  <label id="list_item" class="checkbox-inline"><input type="checkbox" value=""><strong>more stuff...</strong></label><button type="button" class="btn btn-default">x</button><br />
 </section>
 
-<section id="filters">
+<section id="outstanding_total" class="col-xs-12">
+  3 stuff left to do.
+</section>
+<section id="filters" class="col-xs-12">
   <button type="button" class="btn btn-default">All</button>
   <button type="button" class="btn btn-default">Active</button>
   <button type="button" class="btn btn-default">Complete</button>

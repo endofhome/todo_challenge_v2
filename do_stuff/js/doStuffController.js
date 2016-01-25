@@ -1,17 +1,10 @@
 doStuff.controller('doStuffController', [function() {
-  this.toDoList = [
-    {
-      name: 'Build ToDo app',
-      isCompleted: false
-    },
-    {
-      name: 'Hang out washing',
-      isCompleted: false
-    },
-    {
-      name: 'more stuff...',
-      isCompleted: false
-  }];
+  this.toDoList = [];
+
+  this.newTask = function() {
+    this.toDoList.push({description: this.newTaskDescription, isCompleted: false});
+    this.newTaskDescription = null;
+  };
 
   this.sumActive = function(){
     var active = 0;  

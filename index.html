@@ -15,8 +15,10 @@
 
 <section id="new_task" class="col-xs-12">
   New TODO:<br />
-  <input type="text" name="task" ng-model="doStuffCtrl.newTaskDescription"></input>
-  <input type="submit" text="New Task" class="btn btn-default" ng-click="doStuffCtrl.newTask()"></input>
+  <form name="newTaskForm" class="form-inline" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
+    <input type="text" class="form-control input-lg" name="task" ng-model="doStuffCtrl.newTaskDescription" required></input>
+    <button type="submit" text="New Task" class="btn btn-default" ng-click="doStuffCtrl.newTask()" ng-disabled="newTaskForm.$invalid">New Task</button>
+  </form>
 </section>
 
 <section id="task_box" class="col-xs-12">

@@ -1,0 +1,17 @@
+#new_task {
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 5px;
+}
+
+#task_list {
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 5px;
+}
+
+#filters {
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 5px;
+}

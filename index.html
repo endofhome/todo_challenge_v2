@@ -4,14 +4,35 @@
   <meta charset="utf-8">
   <title>Do Stuff</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="do_stuff/css/style.css"
 </head>
 <body ng-controller="doStuffController as doStuffCtrl">
 <h1>Do Stuff</h1>
-<p>TODO Items:</p>
-</p>
+
+<section id="new_task">
+  <p>New TODO:</p>
+  <input></input>
+  <button type="button" class="btn btn-default">New Task</button>
+</section>
+
+<section id="task_list">
+  <p>TODO Items:</p>
+  <label><input type="checkbox" value="">Build ToDo app</label><button type="button" class="btn btn-default">x</button><br>
+  <label><input type="checkbox" value="">Hang out washing</label><button type="button" class="btn btn-default">x</button><br>
+  <label><input type="checkbox" value="">more stuff...</label><button type="button" class="btn btn-default">x</button><br>
+</section>
+
+<section id="filters">
+  <button type="button" class="btn btn-default">All</button>
+  <button type="button" class="btn btn-default">Active</button>
+  <button type="button" class="btn btn-default">Complete</button>
+  <button type="button" class="btn btn-default">Clear All</button>
+</section>
+
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="js/app.js"></script>
+<script src="do_stuff/js/app.js"></script>
+<script src="do_stuff/js/doStuffController.js"></script>
 </body>
 </html>

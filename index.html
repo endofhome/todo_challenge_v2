@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="do_stuff/css/style.css">
 </head>
 <body ng-controller="doStuffController as doStuffCtrl">
-<h1 id="main_heading" class="col-xs-12">Do Stuff</h1>
+<h1 id="main-heading" class="col-xs-12">Do Stuff</h1>
 
-<section id="new_task" class="col-xs-12">
+<section id="new-task" class="col-xs-12">
   New TODO:<br />
   <form name="newTaskForm" class="form-inline" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
     <input type="text" name="task" class="form-control input-lg" size="36" ng-model="doStuffCtrl.newTaskDescription" required></input>
@@ -21,21 +21,29 @@
   </form>
 </section>
 
-<section id="task_box" class="col-xs-12">
+<section id="task-box" class="col-xs-12">
   Stuff TODO:<br />
-  <section id="task_list" ng-repeat="task in doStuffCtrl.toDoList">
-    <label id="list_item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.description}}</strong></label><button type="button" class="btn btn-default">x</button><br />
+  <section id="task-list" ng-repeat="task in doStuffCtrl.toDoList">
+    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.description}}</strong></label><button type="button" class="btn btn-default">x</button><br />
   </section>
 </section>
 
-<section id="outstanding_total" class="col-xs-12">
+<section id="outstanding-total" class="col-xs-12">
   {{doStuffCtrl.sumActive()}} stuff left to do.
 </section>
-<section id="filters" class="col-xs-12">
-  <button type="button" class="btn btn-default">All</button>
-  <button type="button" class="btn btn-default">Active</button>
-  <button type="button" class="btn btn-default">Complete</button>
-  <button type="button" class="btn btn-default">Clear All</button>
+<section id="filters" class="col-xs-4">
+  <div class="col-xs-3 filter-buttons">
+    <button type="button" class="btn btn-primary btn-block">All</button>
+  </div>
+  <div class="col-xs-3 filter-buttons">
+    <button type="button" class="btn btn-primary btn-block">Active</button>
+  </div>
+  <div class="col-xs-3 filter-buttons">
+    <button type="button" class="btn btn-primary btn-block">Complete</button>
+  </div>
+  <div class="col-xs-3 filter-buttons">
+    <button type="button" class="btn btn-primary btn-block">Clear All</button>
+  </div>
 </section>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>

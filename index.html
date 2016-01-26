@@ -37,21 +37,25 @@
     </section>
   </section>
 </section>
+
 <section id="outstanding-total" class="col-xs-12">
   {{doStuffCtrl.sumActive()}} stuff left to do.
 </section>
+
 <section id="tabs" class="col-xs-4">
   <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=1">All</button>
+    <div >
+      <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===1}" ng-click="doStuffCtrl.tab=1">All</button>
+    </div>
   </div>
   <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=2">Active</button>
+    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===2}" ng-click="doStuffCtrl.tab=2">Active</button>
   </div>
   <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=3">Complete</button>
+    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===3}" ng-click="doStuffCtrl.tab=3">Complete</button>
   </div>
   <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.deleteAllTasks()">Clear All</button>
+    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===4}" ng-click="doStuffCtrl.tab=4; doStuffCtrl.deleteAllTasks()">Clear All</button>
   </div>
 </section>
 

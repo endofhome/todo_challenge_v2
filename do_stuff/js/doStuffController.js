@@ -6,6 +6,11 @@ doStuff.controller('doStuffController', [function() {
     this.newTaskDescription = null;
   };
 
+  this.deleteTask = function(task) {
+    var index = this.toDoList.indexOf(task);
+    this.toDoList.splice(index, 1);
+  };
+
   this.sumActive = function(){
     var active = 0;  
     this.toDoList.forEach(function(task){

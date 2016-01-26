@@ -24,7 +24,7 @@
 <section id="task-box" class="col-xs-12">
   Stuff TODO:<br />
   <section id="task-list" ng-repeat="task in doStuffCtrl.toDoList">
-    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.description}}</strong></label><button type="button" class="btn btn-default">x</button><br />
+    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.description}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.deleteTask(task)">x</button><br />
   </section>
 </section>
 

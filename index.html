@@ -11,51 +11,83 @@
   <link rel="stylesheet" href="do_stuff/css/style.css">
 </head>
 <body ng-controller="doStuffController as doStuffCtrl">
-<h1 id="main-heading" class="col-xs-12">Do Stuff</h1>
-
-<section id="new-task" class="col-xs-12">
-  New TODO:<br />
-  <form name="newTaskForm" class="form-inline" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
-    <input type="text" name="task" class="form-control input-md" size="45" ng-model="doStuffCtrl.newTaskDesc" required></input>
-    <button type="submit" text="New Task" class="btn btn-primary" ng-click="doStuffCtrl.newTask()" ng-disabled="newTaskForm.$invalid">Add Task</button>
-  </form>
-</section>
-
-<section id="task-box" class="col-xs-12">
-  Stuff TODO:<br />
-  <section id="task-list" ng-show="doStuffCtrl.tab === 1" ng-repeat="task in doStuffCtrl.toDoList">
-    <section ng-if="task.isCompleted === false">
-      <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+<h1 id="main-heading">Do Stuff</h1>
+<div class="container-fluid">
+  <div class="row container-fluid centred-container">
+    <section class="container-fluid" id="new-task">
+      New stuff:<br />
+      <form name="newTaskForm" class="flex-v-center" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
+        <section class="form-group">
+          <section class="input-group">
+            <input type="text" name="task" class="form-control" ng-model="doStuffCtrl.newTaskDesc" required/>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary" ng-click="doStuffCtrl.newTask()" ng-disabled="newTaskForm.$invalid"><i class="glyphicon glyphicon-plus"></i></button>
+            </span>
+          </section>
+        </section>
+      </form>
     </section>
-  </section>
-  <section id="task-list" ng-show="doStuffCtrl.tab === 2" ng-repeat="task in doStuffCtrl.toDoList">
-    <section ng-if="task.isCompleted === true">
-      <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+  </div>
+  <div class="row container-fluid centred-container">
+    <section class="container-fluid" id="task-box">
+      <div class="row container-fluid centred-container">
+        <section id="task-list" ng-show="doStuffCtrl.tab === 1" ng-repeat="task in doStuffCtrl.toDoList">
+          <section ng-if="task.isCompleted === false">
+            <section name="items">
+              <section id="list-item" class="col-xs-11"><strong>{{task.desc}}</strong></section>
+              <section id="complete-button" class="col-xs-1">
+                <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+              </section>
+            </section>
+          </section>
+        </section>
+      </div>
+      <div class="row container-fluid centred-container">
+        <section id="task-list" ng-show="doStuffCtrl.tab === 2" ng-repeat="task in doStuffCtrl.toDoList">
+          <section ng-if="task.isCompleted === true">
+            <section name="items">
+              <section id="list-item" class="col-xs-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section>
+              <section id="complete-button" class="col-xs-1">
+                <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+              </section>
+            </section>
+          </section>
+        </section>
+      </div>
+      <div class="row container-fluid centred-container">
+        <section id="task-list" ng-show="doStuffCtrl.tab === 3" ng-repeat="task in doStuffCtrl.toDoList">
+          <section name="items">
+            <section id="list-item" class="col-xs-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section>
+            <section id="complete-button" class="col-xs-1">
+              <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+            </section>
+          </section>
+        </section>
+      </div>
     </section>
-  </section>
-  <section id="task-list" ng-show="doStuffCtrl.tab === 3" ng-repeat="task in doStuffCtrl.toDoList">
-    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
-  </section>
-</section>
-
-<section id="outstanding-total" class="col-xs-12">
-  {{doStuffCtrl.sumActive()}} stuff left to do.
-</section>
-
-<section id="tabs" class="col-xs-4">
-  <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===1}" ng-click="doStuffCtrl.tab=1">Active</button>
   </div>
-  <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===2}" ng-click="doStuffCtrl.tab=2">Completed</button>
+  <div class="row container-fluid centred-container">
+    <section class="container-fluid" id="outstanding-total">
+      {{doStuffCtrl.sumActive()}} stuff left to do.
+    </section>
   </div>
-  <div class="col-xs-3 tab-buttons">
-      <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===3}" ng-click="doStuffCtrl.tab=3">Show All</button>
-  </div>
-  <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===4}" ng-click="doStuffCtrl.tab=4; doStuffCtrl.deleteAllTasks()">Clear All</button>
-  </div>
-</section>
+  <div class="row container-fluid centred-container">
+    <section class="container-fluid" id="tabs" class="col-xs-4">
+      <div class="col-xs-3 tab-buttons">
+        <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===1}" ng-click="doStuffCtrl.tab=1">ToDo</button>
+      </div>
+      <div class="col-xs-3 tab-buttons">
+        <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===2}" ng-click="doStuffCtrl.tab=2">Done</button>
+      </div>
+      <div class="col-xs-3 tab-buttons">
+          <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===3}" ng-click="doStuffCtrl.tab=3">Show All</button>
+      </div>
+      <div class="col-xs-3 tab-buttons">
+        <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===4}" ng-click="doStuffCtrl.tab=4; doStuffCtrl.deleteAllTasks()">Clear All</button>
+      </div>
+    </section>
+    </div>
+</div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>

@@ -16,33 +16,40 @@
 <section id="new-task" class="col-xs-12">
   New TODO:<br />
   <form name="newTaskForm" class="form-inline" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
-    <input type="text" name="task" class="form-control input-md" size="45" ng-model="doStuffCtrl.newTaskDescription" required></input>
+    <input type="text" name="task" class="form-control input-md" size="45" ng-model="doStuffCtrl.newTaskDesc" required></input>
     <button type="submit" text="New Task" class="btn btn-primary" ng-click="doStuffCtrl.newTask()" ng-disabled="newTaskForm.$invalid">Add Task</button>
   </form>
 </section>
 
 <section id="task-box" class="col-xs-12">
   Stuff TODO:<br />
-  <section id="task-list" ng-repeat="task in doStuffCtrl.toDoList">
-    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.description}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.deleteTask(task)">x</button><br />
+  <section id="task-list" ng-show="doStuffCtrl.tab === 1" ng-repeat="task in doStuffCtrl.toDoList">
+    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+  </section>
+  <section id="task-list" ng-show="doStuffCtrl.tab === 2" ng-repeat="task in doStuffCtrl.toDoList">
+    <section ng-if="task.isCompleted === false">
+      <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+    </section>
+  </section>
+  <section id="task-list" ng-show="doStuffCtrl.tab === 3" ng-repeat="task in doStuffCtrl.toDoList">
+    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
   </section>
 </section>
-
 <section id="outstanding-total" class="col-xs-12">
   {{doStuffCtrl.sumActive()}} stuff left to do.
 </section>
-<section id="filters" class="col-xs-4">
-  <div class="col-xs-3 filter-buttons">
-    <button type="button" class="btn btn-primary btn-block">All</button>
+<section id="tabs" class="col-xs-4">
+  <div class="col-xs-3 tab-buttons">
+    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=1">All</button>
   </div>
-  <div class="col-xs-3 filter-buttons">
-    <button type="button" class="btn btn-primary btn-block">Active</button>
+  <div class="col-xs-3 tab-buttons">
+    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=2">Active</button>
   </div>
-  <div class="col-xs-3 filter-buttons">
-    <button type="button" class="btn btn-primary btn-block">Complete</button>
+  <div class="col-xs-3 tab-buttons">
+    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=3">Complete</button>
   </div>
-  <div class="col-xs-3 filter-buttons">
-    <button type="button" class="btn btn-primary btn-block">Clear All</button>
+  <div class="col-xs-3 tab-buttons">
+    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=4">Clear All</button>
   </div>
 </section>
 

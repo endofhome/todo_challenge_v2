@@ -9,14 +9,13 @@
       this.newTaskDesc = null;
     };
 
-    this.deleteTask = function(task) {
-      var index = this.toDoList.indexOf(task);
-      this.toDoList.splice(index, 1);
-    };
-
     this.completeTask = function(task) {
       var index = this.toDoList.indexOf(task);
       this.toDoList[index].isCompleted = true;
+    };
+
+    this.deleteAllTasks = function(task) {
+      this.toDoList = [];
     };
 
     this.sumActive = function(){
@@ -27,6 +26,12 @@
         }     
       });
       return active;
+    };
+  
+    // Not used, but keeping this here as it may be useful in future.
+    this.deleteTask = function(task) {
+      var index = this.toDoList.indexOf(task);
+      this.toDoList.splice(index, 1);
     };
   }]);
 }());

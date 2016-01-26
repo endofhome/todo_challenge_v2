@@ -32,7 +32,9 @@
     </section>
   </section>
   <section id="task-list" ng-show="doStuffCtrl.tab === 3" ng-repeat="task in doStuffCtrl.toDoList">
-    <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+    <section ng-if="task.isCompleted === true">
+      <label id="list-item" class="checkbox-inline"><input type="checkbox" value=""><strong>{{task.desc}}</strong></label><button type="button" class="btn btn-default" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+    </section>
   </section>
 </section>
 <section id="outstanding-total" class="col-xs-12">
@@ -49,7 +51,7 @@
     <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=3">Complete</button>
   </div>
   <div class="col-xs-3 tab-buttons">
-    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.tab=4">Clear All</button>
+    <button type="button" class="btn btn-primary btn-block" ng-click="doStuffCtrl.deleteAllTasks()">Clear All</button>
   </div>
 </section>
 

@@ -15,11 +15,10 @@
 <div class="container-fluid">
   <div class="row container-fluid centred-container">
     <section class="container-fluid" id="new-task">
-      New stuff:<br />
       <form name="newTaskForm" class="flex-v-center" role="form" ng-submit="submitForm(newTaskForm.$valid)" novalidate>
         <section class="form-group">
           <section class="input-group">
-            <input type="text" name="task" class="form-control" ng-model="doStuffCtrl.newTaskDesc" required/>
+            <input type="text" name="task" class="form-control" ng-model="doStuffCtrl.newTaskDesc"  placeholder="New stuff..."required/>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary" ng-click="doStuffCtrl.newTask()" ng-disabled="newTaskForm.$invalid"><i class="glyphicon glyphicon-plus"></i></button>
             </span>

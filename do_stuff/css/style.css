@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 #main-heading {
   margin: 0;
   padding: 1%;

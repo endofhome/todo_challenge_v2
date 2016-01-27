@@ -33,10 +33,10 @@
       <div class="row container-fluid centred-container">
         <section id="task-list" ng-show="doStuffCtrl.tab === 1" ng-repeat="task in doStuffCtrl.toDoList">
           <section ng-if="task.isCompleted === false">
-            <section name="items">
-              <section id="list-item" class="col-xs-11"><strong>{{task.desc}}</strong></section>
+            <section id="items" class="row">
+              <section id="list-item" class="col-xs-10 col-sm-11"><strong>{{task.desc}}</strong></section>
               <section id="complete-button" class="col-xs-1">
-                <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+                <button type="button" class="btn btn-default" id="complete-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
               </section>
             </section>
           </section>
@@ -45,32 +45,33 @@
       <div class="row container-fluid centred-container">
         <section id="task-list" ng-show="doStuffCtrl.tab === 2" ng-repeat="task in doStuffCtrl.toDoList">
           <section ng-if="task.isCompleted === true">
-            <section name="items">
-              <section id="list-item" class="col-xs-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section>
-              <section id="complete-button" class="col-xs-1">
-                <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
-              </section>
+            <section id="items" class="row">
+              <section id="list-item" class="col-xs-10 col-sm-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section><br />
             </section>
           </section>
         </section>
       </div>
       <div class="row container-fluid centred-container">
         <section id="task-list" ng-show="doStuffCtrl.tab === 3" ng-repeat="task in doStuffCtrl.toDoList">
-          <section name="items">
-            <section id="list-item" class="col-xs-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section>
+          <section id="items" class="row">
+            <section id="list-item" class="col-xs-10 col-sm-11" ng-class="{'completed-item':task.isCompleted === true}"><strong>{{task.desc}}</strong></section>
             <section id="complete-button" class="col-xs-1">
-              <button type="button" class="btn btn-default" id="new-task-button" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
+              <button type="button" class="btn btn-default" id="complete-button" ng-show="task.isCompleted === false" ng-click="doStuffCtrl.completeTask(task)">x</button><br />
             </section>
           </section>
         </section>
       </div>
     </section>
   </div>
+</div>
+<section class="total-container">
   <div class="row container-fluid centred-container">
     <section class="container-fluid" id="outstanding-total">
       {{doStuffCtrl.sumActive()}} stuff left to do.
     </section>
   </div>
+</section>
+<footer class="footer">
   <div class="row container-fluid centred-container">
     <section class="container-fluid" id="tabs" class="col-xs-4">
       <div class="col-xs-3 tab-buttons">
@@ -86,9 +87,8 @@
         <button type="button" class="btn btn-primary btn-block" ng-class="{active:doStuffCtrl.tab===4}" ng-click="doStuffCtrl.tab=4; doStuffCtrl.deleteAllTasks()">Clear All</button>
       </div>
     </section>
-    </div>
-</div>
-
+  </div>
+</footer>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
